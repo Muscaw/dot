@@ -14,3 +14,13 @@ require("nvimcmp")
 
 vim.o.background = "dark"
 vim.cmd([[colorscheme gruvbox]])
+
+require("nvim-treesitter.configs").setup {
+    highlight = {
+        enable = true,
+    }
+}
+
+vim.cmd([[
+    so ~/.config/nvim/keys.vim
+]])
