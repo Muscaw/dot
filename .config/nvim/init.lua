@@ -21,6 +21,8 @@ require("nvim-treesitter.configs").setup {
     }
 }
 
+require("nvim-tree").setup()
+
 vim.cmd([[
     so ~/.config/nvim/keys.vim
 ]])
