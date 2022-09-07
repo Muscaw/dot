@@ -3,6 +3,8 @@ local opt = vim.opt
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+vim.wo.number = true
+
 opt.expandtab = true
 opt.smartindent = true
 opt.tabstop = 4
@@ -26,3 +28,5 @@ require("nvim-tree").setup()
 vim.cmd([[
     so ~/.config/nvim/keys.vim
 ]])
+
+require("nvim-tree").setup()
