@@ -26,4 +26,9 @@ return require("packer").startup(function(use)
             "kyazdani42/nvim-web-devicons",
         }
     }
+    use "beauwilliams/statusline.lua"
+    use {
+        "rcarriga/nvim-dap-ui",
+        requires = {"mfussenegger/nvim-dap"}
+    }
 end)
