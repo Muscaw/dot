@@ -7,3 +7,4 @@
 	email = moi@kevingrandjean.ch
 [core]
 	pager = less -F -X
+	editor = vim
