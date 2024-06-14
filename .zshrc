@@ -3,6 +3,8 @@ SAVEHIST=1000
 HISTFILE=~/.zsh_history
 setopt appendhistory
 
+eval $(ssh-agent -s) > /dev/null
+
 bindkey "^R" history-incremental-pattern-search-backward
 
 alias vim='nvim'
@@ -22,7 +24,5 @@ export SDKMAN_DIR="$HOME/.sdkman"
 export EDITOR="/usr/bin/vim"
 
 export PATH=$PATH:$HOME/.local/bin
-
-export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/ssh-agent.socket
 
 eval "$(starship init zsh)"
