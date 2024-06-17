@@ -5,7 +5,12 @@ setopt appendhistory
 
 eval $(ssh-agent -s) > /dev/null
 
+# Keybindings
 bindkey "^R" history-incremental-pattern-search-backward
+bindkey "^[[1;3C" forward-word
+bindkey "^[[1;3D" backward-word
+bindkey "^[[H" beginning-of-line
+bindkey "^[[F" end-of-line
 
 alias vim='nvim'
 
