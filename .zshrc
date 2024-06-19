@@ -25,9 +25,20 @@ export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
+[[ -s "$HOME/.dot/init" ]] && source "$HOME/.dot/init"
 
 export EDITOR="/usr/bin/vim"
 
 export PATH=$PATH:$HOME/.local/bin
+
+# Add custom commands
+
+function cheat {
+    curl "https://cheat.sh/$1"
+}
+
+function pbcopy {
+    xclip -sel clipboard
+}
 
 eval "$(starship init zsh)"
