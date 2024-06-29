@@ -2,9 +2,22 @@
 	co = checkout
 	st = status
 	br = branch
+    bl = blame -w -C -C -C
+    dw = diff --word-diff
 [core]
 	pager = less -F -X
 	editor = vim
+[color]
+	ui = true
+[blame]
+    coloring = repeatedLines
 
+# For Reuse Recorded Resolution
+# Keeps track of applied merge in rebase operations and re-applies them if they match
+[rerere]
+	enabled = true
+	autoUpdate = true
+
+# Include device specific config
 [include]
     path = .dot/.gitconfig
