@@ -18,7 +18,7 @@ exec_always --no-startup-id betterlockscreen -w dim
 exec_always --no-startup-id source ~/.fehbg
 
 
-bindsym $mod+space exec rofi -show combi
+bindsym $mod+space exec --no-startup-id rofi -run-command "zsh -c '{cmd}'" -show combi
 bindsym $mod+Shift+q kill
 bindsym $mod+Escape exec betterlockscreen -l dim
 bindsym XF86MonBrightnessUp exec brightnessctl set +5%

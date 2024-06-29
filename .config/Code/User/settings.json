@@ -61,5 +61,8 @@
   "terminal.integrated.fontFamily": "'MesloLGM Nerd Font Mono'",
   "telemetry.telemetryLevel": "off",
   "workbench.tree.indent": 14,
-  "workbench.tree.renderIndentGuides": "always"
+  "workbench.tree.renderIndentGuides": "always",
+  "workbench.iconTheme": "catppuccin-mocha",
+  "workbench.tips.enabled": false,
+  "debug.toolBarLocation": "commandCenter"
 }

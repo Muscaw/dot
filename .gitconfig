@@ -2,9 +2,9 @@
 	co = checkout
 	st = status
 	br = branch
-[user]
-	name = Kevin Grandjean
-	email = moi@kevingrandjean.ch
 [core]
 	pager = less -F -X
 	editor = vim
+
+[include]
+    path = .dot/.gitconfig
