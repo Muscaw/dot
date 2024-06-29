@@ -18,6 +18,11 @@
 	enabled = true
 	autoUpdate = true
 
+[gpg]
+	format = ssh
+[user]
+	signingkey = ~/.ssh/id_rsa.pub
+
 # Include device specific config
 [include]
     path = .dot/.gitconfig
