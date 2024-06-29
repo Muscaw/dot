@@ -11,6 +11,8 @@
 	ui = true
 [blame]
     coloring = repeatedLines
+[commit]
+    gpgsign = true
 
 # For Reuse Recorded Resolution
 # Keeps track of applied merge in rebase operations and re-applies them if they match
