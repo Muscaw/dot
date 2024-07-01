@@ -10,6 +10,7 @@ opt.smartindent = true
 opt.tabstop = 4
 opt.shiftwidth = 4
 
+
 require("plugins")
 require("lsp")
 require("nvimcmp")
@@ -30,3 +31,14 @@ vim.cmd([[
 ]])
 
 require("nvim-tree").setup()
+
+vim.api.nvim_create_augroup("nix_indent", {clear = true})
+vim.api.nvim_create_autocmd("FileType", {
+    group = "nix_indent",
+    pattern = "*.nix",
+    callback = function()
+        vim.opt_local_shiftwidth = 2
+        vim.opt_local.tabstop = 2
+        vim.opt_local.expandtab = true
+    end,
+})
