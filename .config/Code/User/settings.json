@@ -64,5 +64,8 @@
   "workbench.tree.renderIndentGuides": "always",
   "workbench.iconTheme": "catppuccin-mocha",
   "workbench.tips.enabled": false,
-  "debug.toolBarLocation": "commandCenter"
+  "debug.toolBarLocation": "commandCenter",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "never"
+  }
 }

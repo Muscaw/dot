@@ -1,44 +1,39 @@
-local opt = vim.opt
-
+vim.g.base46_cache = vim.fn.stdpath "data" .. "/nvchad/base46/"
 vim.g.mapleader = " "
-vim.g.maplocalleader = " "
 
-vim.wo.number = true
+-- bootstrap lazy and all plugins
+local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
 
-opt.expandtab = true
-opt.smartindent = true
-opt.tabstop = 4
-opt.shiftwidth = 4
+if not vim.loop.fs_stat(lazypath) then
+  local repo = "https://github.com/folke/lazy.nvim.git"
+  vim.fn.system { "git", "clone", "--filter=blob:none", repo, "--branch=stable", lazypath }
+end
 
+vim.opt.rtp:prepend(lazypath)
 
-require("plugins")
-require("lsp")
-require("nvimcmp")
+local lazy_config = require "configs.lazy"
 
-vim.o.background = "dark"
-vim.cmd([[colorscheme gruvbox]])
-
-require("nvim-treesitter.configs").setup {
-    highlight = {
-        enable = true,
-    }
-}
-
-require("nvim-tree").setup()
-
-vim.cmd([[
-    so ~/.config/nvim/keys.vim
-]])
-
-require("nvim-tree").setup()
-
-vim.api.nvim_create_augroup("nix_indent", {clear = true})
-vim.api.nvim_create_autocmd("FileType", {
-    group = "nix_indent",
-    pattern = "*.nix",
-    callback = function()
-        vim.opt_local_shiftwidth = 2
-        vim.opt_local.tabstop = 2
-        vim.opt_local.expandtab = true
+-- load plugins
+require("lazy").setup({
+  {
+    "NvChad/NvChad",
+    lazy = false,
+    branch = "v2.5",
+    import = "nvchad.plugins",
+    config = function()
+      require "options"
     end,
-})
+  },
+
+  { import = "plugins" },
+}, lazy_config)
+
+-- load theme
+dofile(vim.g.base46_cache .. "defaults")
+dofile(vim.g.base46_cache .. "statusline")
+
+require "nvchad.autocmds"
+
+vim.schedule(function()
+  require "mappings"
+end)
