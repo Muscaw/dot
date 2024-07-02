@@ -15,7 +15,6 @@ require("plugins")
 require("lsp")
 require("nvimcmp")
 
---vim.o.background = "dark"
 vim.cmd([[colorscheme catppuccin]])
 
 require("nvim-treesitter.configs").setup {
