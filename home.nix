@@ -8,20 +8,52 @@
     nmap
   ];
 
+  
+
   programs.neovim = {
     enable = true;
     defaultEditor = true;
     extraPackages = with pkgs; [ 
         gcc
         ripgrep
+        unzip
     ];
     plugins = with pkgs.vimPlugins; [
-        nvim-treesitter.withAllGrammars
-        catppuccin-nvim
-        indent-blankline-nvim
-        plenary-nvim
-        telescope-nvim
-        vim-sleuth
+        # catppuccin-nvim
+        # nvim-treesitter.withAllGrammars
+        # indent-blankline-nvim
+        # plenary-nvim
+        # telescope-nvim
+        # vim-sleuth
+        # vim-eunuch
+        # heirline-nvim
+        # which-key-nvim
+        # project-nvim
+        #
+        # # Neo tree dependencies
+        # nvim-web-devicons
+        # nui-nvim
+        # nvim-window-picker
+        # dressing-nvim
+        # neo-tree-nvim
+        #
+        # # comment dependencies
+        # comment-nvim
+        #
+        # # DAP dependencies
+        # nvim-dap
+        # nvim-dap-ui
+        #
+        # # nvim-cmp dependencies
+        # nvim-lspconfig
+        # cmp-buffer
+        # cmp-nvim-lsp
+        # cmp-path
+        # cmp-nvim-lua
+        # lspkind-nvim
+        # cmp-vsnip
+        # vim-vsnip
+        # nvim-cmp
     ];
   };
   programs.git = {

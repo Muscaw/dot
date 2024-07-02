@@ -1,66 +1,39 @@
-local opt = vim.opt
-
+vim.g.base46_cache = vim.fn.stdpath "data" .. "/nvchad/base46/"
 vim.g.mapleader = " "
-vim.g.maplocalleader = " "
 
-vim.wo.number = true
+-- bootstrap lazy and all plugins
+local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
 
-opt.expandtab = true
-opt.smartindent = true
-opt.tabstop = 4
-opt.shiftwidth = 4
+if not vim.loop.fs_stat(lazypath) then
+  local repo = "https://github.com/folke/lazy.nvim.git"
+  vim.fn.system { "git", "clone", "--filter=blob:none", repo, "--branch=stable", lazypath }
+end
 
-vim.api.nvim_create_augroup("nix_indent", {clear = true})
-vim.api.nvim_create_autocmd("FileType", {
-    group = "nix_indent",
-    pattern = "*.nix",
-    callback = function()
-        vim.opt_local_shiftwidth = 2
-        vim.opt_local.tabstop = 2
-        vim.opt_local.expandtab = true
+vim.opt.rtp:prepend(lazypath)
+
+local lazy_config = require "configs.lazy"
+
+-- load plugins
+require("lazy").setup({
+  {
+    "NvChad/NvChad",
+    lazy = false,
+    branch = "v2.5",
+    import = "nvchad.plugins",
+    config = function()
+      require "options"
     end,
-})
+  },
 
-require("plugins")
-require("lsp")
-require("nvimcmp")
-require("nvim-treesitter.configs").setup {
-    highlight = {
-        enable = true,
-    }
-}
+  { import = "plugins" },
+}, lazy_config)
 
-vim.cmd([[colorscheme catppuccin]])
+-- load theme
+dofile(vim.g.base46_cache .. "defaults")
+dofile(vim.g.base46_cache .. "statusline")
 
-vim.cmd([[
-    so ~/.config/nvim/keys.vim
-]])
+require "nvchad.autocmds"
 
-require("nvim-tree").setup()
-
-
-local highlight = {
-    "RainbowRed",
-    "RainbowYellow",
-    "RainbowBlue",
-    "RainbowOrange",
-    "RainbowGreen",
-    "RainbowViolet",
-    "RainbowCyan",
-}
-
-local hooks = require "ibl.hooks"
--- create the highlight groups in the highlight setup hook, so they are reset
--- every time the colorscheme changes
-hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
-    vim.api.nvim_set_hl(0, "RainbowRed", { fg = "#E06C75" })
-    vim.api.nvim_set_hl(0, "RainbowYellow", { fg = "#E5C07B" })
-    vim.api.nvim_set_hl(0, "RainbowBlue", { fg = "#61AFEF" })
-    vim.api.nvim_set_hl(0, "RainbowOrange", { fg = "#D19A66" })
-    vim.api.nvim_set_hl(0, "RainbowGreen", { fg = "#98C379" })
-    vim.api.nvim_set_hl(0, "RainbowViolet", { fg = "#C678DD" })
-    vim.api.nvim_set_hl(0, "RainbowCyan", { fg = "#56B6C2" })
+vim.schedule(function()
+  require "mappings"
 end)
-require("ibl").setup {
-    indent = { highlight = highlight }
-}
