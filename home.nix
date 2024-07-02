@@ -11,10 +11,17 @@
   programs.neovim = {
     enable = true;
     defaultEditor = true;
-    extraPackages = [ pkgs.gcc ];
+    extraPackages = with pkgs; [ 
+        gcc
+        ripgrep
+    ];
     plugins = with pkgs.vimPlugins; [
         nvim-treesitter.withAllGrammars
         catppuccin-nvim
+        indent-blankline-nvim
+        plenary-nvim
+        telescope-nvim
+        vim-sleuth
     ];
   };
   programs.git = {

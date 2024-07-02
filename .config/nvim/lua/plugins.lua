@@ -14,11 +14,6 @@ return require("packer").startup(function(use)
             "hrsh7th/vim-vsnip",
         }
     }
-    use "ellisonleao/gruvbox.nvim"
-    use ({
-        "nvim-treesitter/nvim-treesitter",
-        run = ":TSUpdate",
-    })
     use {
         "nvim-telescope/telescope.nvim", tag = "0.1.0",
         requires = { {"nvim-lua/plenary.nvim"} }
