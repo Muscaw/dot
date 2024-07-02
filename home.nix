@@ -14,6 +14,7 @@
     extraPackages = [ pkgs.gcc ];
     plugins = with pkgs.vimPlugins; [
         nvim-treesitter.withAllGrammars
+        catppuccin-nvim
     ];
   };
   programs.git = {
