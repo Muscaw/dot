@@ -8,8 +8,6 @@
     nmap
   ];
 
-  
-
   programs.neovim = {
     enable = true;
     defaultEditor = true;
@@ -60,6 +58,11 @@
     enable = true;
     userName = "Kevin Grandjean";
     userEmail = "moi@kevingrandjean.ch";
+  };
+
+  programs.vscode = {
+    enable = true;
+    package = pkgs.vscode.fhs;
   };
 
   home.stateVersion = "24.05";

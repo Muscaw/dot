@@ -49,6 +49,10 @@
         i3status
         i3lock
       ];
+      extraSessionCommands = ''
+        eval $(gnome-keyring-daemon --daemonize)
+        export SSH_AUTH_SOCK
+      '';
     };
   };
 
