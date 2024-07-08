@@ -35,11 +35,13 @@
 
     desktopManager = {
       xterm.enable = false;
-      gnome.enable = true;
+      #gnome.enable = true;
+      plasma6.enable = true;
     };
     displayManager = {
       defaultSession = "none+i3";
-      gdm.enable = true;
+      #gdm.enable = true;
+      sddm.enable = true;
     };
 
     windowManager.i3 = {
