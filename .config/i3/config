@@ -13,7 +13,7 @@ set $mod Mod4
 
 exec --no-startup-id picom
 exec_always --no-startup-id ~/.config/polybar/launch_polybar.sh
-exec_always --no-startup-id feh --bg-scale ~/.backgrounds/background.jpg
+exec_always --no-startup-id feh --bg-fill ~/.backgrounds/background.jpg
 exec_always --no-startup-id betterlockscreen -w dim
 exec_always --no-startup-id source ~/.fehbg
 

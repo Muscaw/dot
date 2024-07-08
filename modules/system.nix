@@ -1,7 +1,7 @@
-{ pkgs, ... }: 
+{ pkgs, ... }:
 
 {
-  nix.settings.experimental-features = [ "nix-command" "flakes"];
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Set your time zone.
   time.timeZone = "Europe/Zurich";
@@ -25,6 +25,7 @@
   services.flatpak.enable = true;
   services.picom.enable = true;
 
+  services.gnome.gnome-keyring.enable = true;
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
@@ -95,13 +96,13 @@
     description = "Kevin Grandjean";
     extraGroups = [ "networkmanager" "wheel" "scanner" "lp" ];
     packages = with pkgs; [
-    #  thunderbird
+      #  thunderbird
     ];
     useDefaultShell = true;
   };
 
   programs.zsh.enable = true;
-
+  programs.ssh.startAgent = true;
 
   # Install firefox.
   programs.firefox.enable = true;
@@ -130,5 +131,6 @@
     arandr
     libgcc
     sane-backends
+    killall
   ];
 }
