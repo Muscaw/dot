@@ -1,4 +1,4 @@
-{ config, pkgs, sane-test-pkgs, ... }:
+{ config, ... }:
 
 {
   imports = [
