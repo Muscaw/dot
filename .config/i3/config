@@ -11,7 +11,8 @@
 
 set $mod Mod4
 
-exec --no-startup-id picom
+exec_always --no-startup-id picom --config ~/.config/picom/picom.conf
+exec_always --no-startup-id autorandr --change
 exec_always --no-startup-id ~/.config/polybar/launch_polybar.sh
 exec_always --no-startup-id feh --bg-fill ~/.backgrounds/background.jpg
 exec_always --no-startup-id betterlockscreen -w dim
@@ -179,7 +180,7 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec xfce4-session-logout
 
 
 

@@ -38,9 +38,14 @@
       xterm.enable = false;
       #gnome.enable = true;
       plasma6.enable = true;
+      xfce = {
+        enable = true;
+        noDesktop = true;
+        enableXfwm = false;
+      };
     };
     displayManager = {
-      defaultSession = "none+i3";
+      defaultSession = "xfce";
       #gdm.enable = true;
       sddm.enable = true;
     };
@@ -85,6 +90,8 @@
     # no need to redefine it in your config for now)
     #media-session.enable = true;
   };
+
+  services.autorandr.enable = true;
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
@@ -132,5 +139,6 @@
     libgcc
     sane-backends
     killall
+    autorandr
   ];
 }
