@@ -3,8 +3,6 @@ SAVEHIST=1000
 HISTFILE=~/.zsh_history
 setopt appendhistory
 
-eval $(ssh-agent -s) > /dev/null
-
 # Keybindings
 bindkey "^R" history-incremental-pattern-search-backward
 bindkey "^[[1;3C" forward-word
