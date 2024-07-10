@@ -67,5 +67,8 @@
   "debug.toolBarLocation": "commandCenter",
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "never"
-  }
+  },
+  "redhat.telemetry.enabled": false,
+  "rest-client.enableTelemetry": false,
+  "gitlens.telemetry.enabled": false
 }
