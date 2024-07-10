@@ -70,5 +70,6 @@
   },
   "redhat.telemetry.enabled": false,
   "rest-client.enableTelemetry": false,
-  "gitlens.telemetry.enabled": false
+  "gitlens.telemetry.enabled": false,
+  "update.mode": "manual"
 }
