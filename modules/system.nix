@@ -23,7 +23,7 @@
 
   # Enable flatpak
   services.flatpak.enable = true;
-  services.picom.enable = true;
+  #services.picom.enable = true;
 
   services.gnome.gnome-keyring.enable = true;
   # Enable the X11 windowing system.
@@ -56,6 +56,7 @@
         dmenu
         i3status
         i3lock
+        picom
       ];
       extraSessionCommands = ''
         eval $(gnome-keyring-daemon --daemonize)
