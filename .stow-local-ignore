@@ -1,0 +1,6 @@
+home
+hosts
+modules
+packages
+flake.*
+*.nix
