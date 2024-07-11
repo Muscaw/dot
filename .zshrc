@@ -9,6 +9,7 @@ bindkey "^[[1;3C" forward-word
 bindkey "^[[1;3D" backward-word
 bindkey "^[[H" beginning-of-line
 bindkey "^[[F" end-of-line
+bindkey "^[[3~" delete-char
 
 alias vim='nvim'
 
@@ -16,7 +17,9 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-source $HOME/.dot/init
+if [ -f "$HOME/.dot/init" ]; then
+    source $HOME/.dot/init
+fi
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"

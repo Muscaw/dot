@@ -2,5 +2,8 @@ home
 hosts
 modules
 packages
+nvidia
 flake.*
 .*.nix
+README.md
+.git

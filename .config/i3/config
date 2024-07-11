@@ -17,6 +17,7 @@ exec_always --no-startup-id ~/.config/polybar/launch_polybar.sh
 exec_always --no-startup-id feh --bg-fill ~/.backgrounds/background.jpg
 exec_always --no-startup-id betterlockscreen -w dim
 exec_always --no-startup-id source ~/.fehbg
+exec_always --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=ssh,secrets,pkcs11
 
 
 bindsym $mod+space exec --no-startup-id rofi -run-command "zsh -c '{cmd}'" -show combi
@@ -179,8 +180,13 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
-# exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec xfce4-session-logout
+# Exit menu
+bindsym $mod+Shift+e exec i3-nagbar -f "pango:Meslo LGM Nerd Font 12" \
+-m "Exit i3? This will end your current X session." \
+-B "Exit now" "i3-msg exit" \
+-B "Suspend" "systemctl suspend && pkill i3-nagbar" \
+-B "Reboot" "systemctl reboot" \
+-B "Power off" "systemctl poweroff"
 
 
 
