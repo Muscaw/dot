@@ -27,6 +27,8 @@
 
 [user]
 	signingkey = ~/.ssh/id_rsa.pub
+	email = moi@kevingrandjean.ch
+	name = Kevin Grandjean
 
 # Include device specific config
 [include]

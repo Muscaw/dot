@@ -3,4 +3,4 @@ hosts
 modules
 packages
 flake.*
-*.nix
+.*.nix
