@@ -20,6 +20,7 @@ exec_always --no-startup-id source ~/.fehbg
 exec_always --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=ssh,secrets,pkcs11
 
 
+bindsym Print exec flameshot gui
 bindsym $mod+space exec --no-startup-id rofi -run-command "zsh -c '{cmd}'" -show combi
 bindsym $mod+Shift+q kill
 bindsym $mod+Escape exec betterlockscreen -l dim

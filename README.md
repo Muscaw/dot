@@ -12,6 +12,7 @@
 - alacritty
 - zsh
 - gcr-4
+- flameshot
 
 
 ### If using nvidia drivers
