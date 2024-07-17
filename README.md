@@ -13,10 +13,22 @@
 - zsh
 - gcr-4
 - flameshot
+- cups
+- avahi-daemon
 
 
 ### If using nvidia drivers
 Follow https://github.com/korvahannu/arch-nvidia-drivers-installation-guide (inner-sourced under nvidia for safe-keeping)
+
+## Install print capabilities
+Requires:
+- cups
+- avahi-daemon for local network discoverability
+
+Given the use of systemd-resolve, follow the instructions on the Arch wiki:
+- https://wiki.archlinux.org/title/avahi
+
+Also disable MulticastDNS on systemd-resolved to avoid conflicts
 
 ## Setup SSH agent
 
