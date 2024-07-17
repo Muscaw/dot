@@ -15,6 +15,7 @@
 - flameshot
 - cups
 - avahi-daemon
+- ufw
 
 
 ### If using nvidia drivers
