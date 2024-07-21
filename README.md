@@ -16,6 +16,8 @@
 - cups
 - avahi-daemon
 - ufw
+- powertop (if laptop)
+- tlp (if laptop)
 
 
 ### If using nvidia drivers
