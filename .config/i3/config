@@ -26,7 +26,7 @@ bindsym $mod+Shift+q kill
 bindsym $mod+Escape exec betterlockscreen -l dim
 bindsym XF86MonBrightnessUp exec brightnessctl set +5%
 bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
-bindsym $mod+r exec alacritty -e "ranger"
+bindsym $mod+r exec kitty -e "yazi"
 
 bindsym $mod+u resize shrink width 10 px or 10 ppt
 bindsym $mod+Shift+u resize grow width 10 px or 10 ppt
@@ -80,7 +80,7 @@ floating_modifier $mod
 tiling_drag modifier titlebar
 
 # start a terminal
-bindsym $mod+Return exec --no-startup-id alacritty
+bindsym $mod+Return exec --no-startup-id kitty
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec --no-startup-id dmenu_run
