@@ -43,3 +43,5 @@ function pbcopy {
 }
 
 eval "$(starship init zsh)"
+
+[[ -s "/home/m/.gvm/scripts/gvm" ]] && source "/home/m/.gvm/scripts/gvm"
