@@ -1,3 +1,11 @@
+local function is_cargo_available()
+    local handle = io.popen("which cargo 2>/dev/null")
+    local result = handle:read("*a")
+    handle:close()
+
+    return result and result ~= ""
+end
+
 return {
     "rcarriga/nvim-dap-ui",
     dependencies = {
@@ -6,12 +14,15 @@ return {
         "leoluz/nvim-dap-go",
         {
             "Joakker/lua-json5",
-            build = "./install.sh"
+            build = "./install.sh",
+            enabled = is_cargo_available()
         },
     },
     config = function()
         local vscode = require("dap.ext.vscode")
-        vscode.json_decode = require("json5").parse
+        if is_cargo_available() then
+            vscode.json_decode = require("json5").parse
+        end
         local dap = require("dap")
         vim.keymap.set("n", "<leader>db", dap.toggle_breakpoint, { desc = "toggle breakpoint" })
         vim.keymap.set("n", "<leader>dr", dap.continue, { desc = "continue" })
