@@ -3,6 +3,11 @@ SAVEHIST=1000
 HISTFILE=~/.zsh_history
 setopt appendhistory
 
+
+if [ -f "$HOME/.dot/pre_init" ]; then
+    source $HOME/.dot/pre_init
+fi
+
 # Keybindings
 bindkey "^R" history-incremental-pattern-search-backward
 bindkey "^[[1;3C" forward-word
@@ -17,9 +22,6 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-if [ -f "$HOME/.dot/init" ]; then
-    source $HOME/.dot/init
-fi
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
@@ -45,3 +47,7 @@ function pbcopy {
 eval "$(starship init zsh)"
 
 [[ -s "/home/m/.gvm/scripts/gvm" ]] && source "/home/m/.gvm/scripts/gvm"
+
+if [ -f "$HOME/.dot/post_init" ]; then
+    source $HOME/.dot/post_init
+fi
