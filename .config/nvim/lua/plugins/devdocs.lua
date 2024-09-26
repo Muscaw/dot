@@ -4,15 +4,26 @@ return {
         "nvim-lua/plenary.nvim",
         "nvim-telescope/telescope.nvim",
         "nvim-treesitter/nvim-treesitter",
+        "ellisonleao/glow.nvim",
     },
-    opts = {},
     config = function()
         local devdocs = require("nvim-devdocs")
-        devdocs.setup()
+        devdocs.setup({
+            previewer_cmd = "glow",
+            float_win = {
+                relative = "editor",
+                height = 50,
+                width = 120,
+                border = "rounded",
+            },
+            cmd_args = {
+                "-s", "dark", "-w", "80"
+            }
+        })
 
         vim.keymap.set("n", "<leader>Df", function() devdocs.open_doc_float({ fargs = {} }) end,
             { desc = "open documentation for current file" })
         vim.keymap.set("n", "<leader>Dd", function() devdocs.open_doc_current_file(true) end,
             { desc = "open all documentations" })
-    end
+    end,
 }
