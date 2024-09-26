@@ -43,6 +43,6 @@ return {
         --                 :BufferCloseBuffersLeft
         --                 :BufferCloseBuffersRight
         -- Magic buffer-picking mode
-        map('n', '<C-p>', '<Cmd>BufferPick<CR>', opts)
+        map('n', '<A-p>', '<Cmd>BufferPick<CR>', opts)
     end
 }
