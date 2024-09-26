@@ -3,6 +3,7 @@ return {
     dependencies = {
         "nvim-tree/nvim-web-devicons"
     },
+    enabled = false,
     init = function() vim.g.barbar_auto_setup = false end,
     config = function()
         local barbar = require("barbar")
