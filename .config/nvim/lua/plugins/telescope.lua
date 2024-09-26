@@ -1,16 +1,41 @@
 return {
     "nvim-telescope/telescope.nvim",
     tag = "0.1.4",
-    dependencies = { "nvim-lua/plenary.nvim" },
+    dependencies = {
+        "nvim-lua/plenary.nvim",
+        "sharkdp/fd",
+        { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
+        "ahmedkhalf/project.nvim",
+    },
 
     config = function()
-        require("telescope").setup({
+        local telescope = require("telescope")
+        telescope.setup({
             pickers = {
                 find_files = {
                     find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" }
                 }
+            },
+            extensions = {
+                fzf = {
+                    fuzzy = true,     -- false will only do exact matching
+                    override_generic_sorter = true, -- override the generic sorter
+                    override_file_sorter = true, -- override the file sorter
+                    case_mode = "smart_case", -- or "ignore_case" or "respect_case"
+                    -- the default case_mode is "smart_case"
+                },
+                project = {
+                    base_dirs = {
+                        "~/workspace",
+                        "~/.dotfiles"
+                    },
+                    hidden_files = true
+                }
             }
         })
+        require("project_nvim").setup {}
+        telescope.load_extension("fzf")
+        telescope.load_extension("projects")
         local builtin = require("telescope.builtin")
         vim.keymap.set('n', '<leader>pf', builtin.find_files, { desc = "show project files" })
         vim.keymap.set("n", "<C-p>", builtin.git_files, { desc = "show git files" })
@@ -26,5 +51,8 @@ return {
             builtin.grep_string({ search = vim.fn.input("Grep >") })
         end, { desc = "search for string" })
         vim.keymap.set("n", "<leader>vh", builtin.help_tags, {})
+
+        -- project
+        vim.keymap.set("n", "<leader>pp", ":lua require'telescope'.extensions.projects.projects{}<CR>", { desc = "projects" })
     end
 }
