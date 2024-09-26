@@ -24,7 +24,7 @@ return {
                 border = "rounded",
             },
         }
-        if is_glow_available then
+        if is_glow_available() then
             devdocs_config["previewer_cmd"] = "glow"
             devdocs_config["cmd_args"] = {
                 "-s", "dark", "-w", "80"
