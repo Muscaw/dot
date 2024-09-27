@@ -24,18 +24,13 @@ return {
                     case_mode = "smart_case", -- or "ignore_case" or "respect_case"
                     -- the default case_mode is "smart_case"
                 },
-                project = {
-                    base_dirs = {
-                        "~/workspace",
-                        "~/.dotfiles"
-                    },
-                    hidden_files = true
-                }
             }
         })
-        require("project_nvim").setup {}
+        -- require("project_nvim").setup {
+        --     show_hidden = true
+        -- }
         telescope.load_extension("fzf")
-        telescope.load_extension("projects")
+        -- telescope.load_extension("projects")
         local builtin = require("telescope.builtin")
         vim.keymap.set('n', '<leader>pf', builtin.find_files, { desc = "show project files" })
         vim.keymap.set("n", "<C-p>", builtin.git_files, { desc = "show git files" })
