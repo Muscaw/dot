@@ -43,11 +43,11 @@ return {
             builtin.grep_string({ search = word })
         end, { desc = "search for WORD" })
         vim.keymap.set("n", "<leader>ps", function()
-            builtin.grep_string({ search = vim.fn.input("Grep >") })
+            builtin.grep_string({ search = vim.fn.input("Grep >"), })
         end, { desc = "search for string" })
         vim.keymap.set("n", "<leader>vh", builtin.help_tags, {})
 
         -- project
-        vim.keymap.set("n", "<leader>pp", ":lua require'telescope'.extensions.projects.projects{}<CR>", { desc = "projects" })
+        -- vim.keymap.set("n", "<leader>pp", ":lua require'telescope'.extensions.projects.projects{}<CR>", { desc = "projects" })
     end
 }
