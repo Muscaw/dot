@@ -5,11 +5,11 @@ return {
         "nvim-lua/plenary.nvim",
         "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
         "MunifTanjim/nui.nvim",
-        "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
+        "3rd/image.nvim",              -- Optional image support in preview window: See `# Preview Mode` for more information
     },
     keys = {
         {
-            "<C-1>", function() vim.cmd("Neotree toggle") end, desc = "show file tree"
-        }
+            "<C-1>", function() vim.cmd("Neotree toggle") end, mode = { "n", "i" }, desc = "show file tree",
+        },
     }
 }
