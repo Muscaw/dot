@@ -25,7 +25,9 @@ return {
             { "<leader>t",  group = "test" },
             { "<leader>d",  group = "debug" },
             { "<leader>pw", group = "word search" },
-            { "<leader>f",  group = "files" }
+            { "<leader>f",  group = "files" },
+            { "<leader>D",  group = "documentation" },
+            { "<leader>v",  group = "vim" }
         })
     end
 }
