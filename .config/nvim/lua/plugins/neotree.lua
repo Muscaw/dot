@@ -9,7 +9,14 @@ return {
     },
     keys = {
         {
-            "<C-1>", function() vim.cmd("Neotree toggle") end, mode = { "n", "i" }, desc = "show file tree",
+            "<leader>ft", function() vim.cmd("Neotree toggle") end, mode = { "n", "i" }, desc = "show file tree",
         },
+    },
+    opts = {
+        filesystem = {
+            filtered_items = {
+                hide_dotfiles = false,
+            }
+        }
     }
 }
