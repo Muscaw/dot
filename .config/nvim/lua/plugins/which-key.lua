@@ -24,7 +24,8 @@ return {
             { "<leader>r",  group = "refactor" },
             { "<leader>t",  group = "test" },
             { "<leader>d",  group = "debug" },
-            { "<leader>pw", group = "word search" }
+            { "<leader>pw", group = "word search" },
+            { "<leader>f",  group = "files" }
         })
     end
 }
