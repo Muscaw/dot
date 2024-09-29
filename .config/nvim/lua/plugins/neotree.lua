@@ -9,7 +9,7 @@ return {
     },
     keys = {
         {
-            "<leader>ft", function() vim.cmd("Neotree toggle") end, mode = { "n", "i" }, desc = "show file tree",
+            "<leader>ft", function() vim.cmd("Neotree toggle") end, desc = "show file tree",
         },
     },
     opts = {

@@ -6,6 +6,7 @@ return {
         "sharkdp/fd",
         { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
         "ahmedkhalf/project.nvim",
+        "nvim-telescope/telescope-ui-select.nvim",
     },
 
     config = function()
@@ -30,6 +31,7 @@ return {
         --     show_hidden = true
         -- }
         telescope.load_extension("fzf")
+        telescope.load_extension("ui-select")
         -- telescope.load_extension("projects")
         local builtin = require("telescope.builtin")
         vim.keymap.set('n', '<leader>pf', builtin.find_files, { desc = "show project files" })
@@ -45,7 +47,7 @@ return {
         vim.keymap.set("n", "<leader>ps", function()
             builtin.grep_string({ search = vim.fn.input("Grep >"), additional_args = { "--hidden" } })
         end, { desc = "search for string" })
-        vim.keymap.set("n", "<leader>vh", builtin.help_tags, {desc = "show vim commands"})
+        vim.keymap.set("n", "<leader>vh", builtin.help_tags, { desc = "show vim commands" })
 
         -- project
         -- vim.keymap.set("n", "<leader>pp", ":lua require'telescope'.extensions.projects.projects{}<CR>", { desc = "projects" })
