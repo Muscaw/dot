@@ -32,7 +32,7 @@ export SDKMAN_DIR="$HOME/.sdkman"
 
 export EDITOR="/usr/bin/vim"
 
-export PATH=$PATH:$HOME/.local/bin
+export PATH=$PATH:$HOME/.local/bin:$HOME/.powertools
 
 # Add custom commands
 
