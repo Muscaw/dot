@@ -47,7 +47,7 @@ return {
         vim.keymap.set("n", "<leader>ps", function()
             builtin.grep_string({ search = vim.fn.input("Grep >"), additional_args = { "--hidden" } })
         end, { desc = "search for string" })
-        vim.keymap.set("n", "<leader>vh", builtin.help_tags, { desc = "show vim commands" })
+        vim.keymap.set("n", "<leader>vh", builtin.keymaps, { desc = "show vim commands" })
 
         -- project
         -- vim.keymap.set("n", "<leader>pp", ":lua require'telescope'.extensions.projects.projects{}<CR>", { desc = "projects" })
