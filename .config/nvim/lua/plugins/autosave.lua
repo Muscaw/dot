@@ -1,4 +1,6 @@
 return {
-    "pocco81/auto-save.nvim",
-    opts = {}
+    "muscaw/auto-save.nvim",
+    opts = {
+        execution_message = nil
+    }
 }
