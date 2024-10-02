@@ -39,9 +39,9 @@ bindsym $mod+x gaps outer all minus 10
 bindsym $mod+Shift+x gaps outer all plus 10
 bindsym $mod+g gaps inner all toggle 20
 
-bindsym $mod+p exec --no-startup-id playerctl play-pause
+bindsym $mod+i exec --no-startup-id playerctl play-pause
 bindsym $mod+o exec --no-startup-id playerctl previous
-bindsym $mod+egrave exec --no-startup-id playerctl next
+bindsym $mod+p exec --no-startup-id playerctl next
 
 focus_follows_mouse no
 
