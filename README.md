@@ -18,6 +18,7 @@
 - ufw
 - powertop (if laptop)
 - tlp (if laptop)
+- playerctl
 
 
 ### If using nvidia drivers
