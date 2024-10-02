@@ -45,7 +45,7 @@ return {
             builtin.grep_string({ search = word })
         end, { desc = "search for WORD" })
         vim.keymap.set("n", "<leader>ps", function()
-            builtin.grep_string({ search = vim.fn.input("Grep >"), additional_args = { "--hidden" } })
+            builtin.grep_string({ search = vim.fn.input("Grep >"), additional_args = { "--hidden", "--glob", "!.git/**" } })
         end, { desc = "search for string" })
         vim.keymap.set("n", "<leader><leader>", builtin.keymaps, { desc = "show vim commands" })
 
