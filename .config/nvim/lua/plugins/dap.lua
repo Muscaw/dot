@@ -1,10 +1,4 @@
-local function is_cargo_available()
-    local handle = io.popen("which cargo 2>/dev/null")
-    local result = handle:read("*a")
-    handle:close()
-
-    return result and result ~= ""
-end
+local utils = require("utils")
 
 return {
     "rcarriga/nvim-dap-ui",
@@ -15,12 +9,12 @@ return {
         {
             "Joakker/lua-json5",
             build = "./install.sh",
-            enabled = is_cargo_available()
+            enabled = utils.is_cargo_available()
         },
     },
     config = function()
         local vscode = require("dap.ext.vscode")
-        if is_cargo_available() then
+        if utils.is_cargo_available() then
             vscode.json_decode = require("json5").parse
         end
         local dap = require("dap")
