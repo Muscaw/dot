@@ -27,7 +27,7 @@ return {
         vim.keymap.set("n", "<leader>tt", neotest.run.run, { desc = "run test" })
         vim.keymap.set("n", "<leader>tf", function() neotest.run.run(vim.fn.expand("%")) end,
             { desc = "run tests in file" })
-        vim.keymap.set("n", "<leader>tp", function() neotest.run.run(vim.fn.getcwd()) end,
+        vim.keymap.set("n", "<leader>tp", function() neotest.run.run({vim.fn.getcwd(), true}) end,
             { desc = "run tests in project" })
         vim.keymap.set("n", "<leader>tO", neotest.output_panel.toggle, { desc = "toggle test output panel" })
         vim.keymap.set("n", "<leader>to", function()
