@@ -1,0 +1,3 @@
+script_dir="$(dirname "${BASH_SOURCE[0]}")"
+
+yay -S --needed --noconfirm  - < $script_dir/packages.list
