@@ -19,9 +19,9 @@ return {
                 require("neotest-go")({
                     recursive_run = true,
                 }),
-                require("neotest-java")({
-
-                })
+                -- require("neotest-java")({
+                --
+                -- })
             }
         })
         vim.keymap.set("n", "<leader>tt", neotest.run.run, { desc = "run test" })

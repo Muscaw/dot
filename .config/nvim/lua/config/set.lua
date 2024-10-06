@@ -1,6 +1,7 @@
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.cmdheight = 0
+vim.api.nvim_set_option("clipboard", "unnamedplus")
 
 vim.api.nvim_create_autocmd('CmdlineEnter', {
     group = vim.api.nvim_create_augroup(

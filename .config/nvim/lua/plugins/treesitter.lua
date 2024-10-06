@@ -21,7 +21,7 @@ return {
                 enable = true
             },
 
-            highligh = {
+            highlight = {
                 enable = true,
 
                 -- Setting this to true will run `:h syntax` and tree-sitter at the same time.

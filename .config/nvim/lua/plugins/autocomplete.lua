@@ -6,6 +6,7 @@ return {
         "neovim/nvim-lspconfig",
         "hrsh7th/nvim-cmp",
         "hrsh7th/cmp-nvim-lsp",
+        "RRethy/vim-illuminate"
     },
     config = function()
         local lsp_zero = require("lsp-zero")
@@ -75,5 +76,6 @@ return {
             },
         })
 
+        require("illuminate").configure({delay = 0})
     end
 }
