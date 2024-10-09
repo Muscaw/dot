@@ -9,12 +9,12 @@ return {
         {
             "Joakker/lua-json5",
             build = "./install.sh",
-            enabled = utils.is_cargo_available()
+            enabled = utils.is_bin_available("cargo")
         },
     },
     config = function()
         local vscode = require("dap.ext.vscode")
-        if utils.is_cargo_available() then
+        if utils.is_bin_available("cargo") then
             vscode.json_decode = require("json5").parse
         end
         local dap = require("dap")

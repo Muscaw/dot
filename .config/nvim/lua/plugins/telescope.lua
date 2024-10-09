@@ -1,36 +1,42 @@
+local fzf_enabled = require("utils").is_bin_available("fzf")
+local fzf_configuration = {
+    fuzzy = true,                   -- false will only do exact matching
+    override_generic_sorter = true, -- override the generic sorter
+    override_file_sorter = true,    -- override the file sorter
+    case_mode = "smart_case",       -- or "ignore_case" or "respect_case"
+    -- the default case_mode is "smart_case"
+}
 return {
     "nvim-telescope/telescope.nvim",
     tag = "0.1.4",
     dependencies = {
         "nvim-lua/plenary.nvim",
         "sharkdp/fd",
-        { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
+        { 'nvim-telescope/telescope-fzf-native.nvim', enabled = fzf_enabled, build = 'make' },
         "ahmedkhalf/project.nvim",
         "nvim-telescope/telescope-ui-select.nvim",
     },
 
     config = function()
         local telescope = require("telescope")
+        local extensions = {}
+        if fzf_enabled then
+            extensions["fzf"] = fzf_configuration
+        end
         telescope.setup({
             pickers = {
                 find_files = {
                     find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" }
                 }
             },
-            extensions = {
-                fzf = {
-                    fuzzy = true,                   -- false will only do exact matching
-                    override_generic_sorter = true, -- override the generic sorter
-                    override_file_sorter = true,    -- override the file sorter
-                    case_mode = "smart_case",       -- or "ignore_case" or "respect_case"
-                    -- the default case_mode is "smart_case"
-                },
-            }
+            extensions = extensions
         })
         -- require("project_nvim").setup {
         --     show_hidden = true
         -- }
-        telescope.load_extension("fzf")
+        if fzf_enabled then
+            telescope.load_extension("fzf")
+        end
         telescope.load_extension("ui-select")
         -- telescope.load_extension("projects")
         local builtin = require("telescope.builtin")
