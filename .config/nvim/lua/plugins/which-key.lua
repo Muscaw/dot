@@ -20,6 +20,7 @@ return {
             { "<leader>c",  group = "config" },
             { "<leader>p",  group = "project" },
             { "<leader>w",  group = "window" },
+            { "<leader>ws", group = "size" },
             { "<leader>x",  group = "problem" },
             { "<leader>r",  group = "refactor" },
             { "<leader>t",  group = "test" },
