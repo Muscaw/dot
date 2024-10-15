@@ -26,6 +26,23 @@ return {
         vim.keymap.set("n", "<leader>dT", dap.terminate, { desc = "terminate" })
         vim.keymap.set("n", "<leader>dR", dap.restart, { desc = "restart" })
 
+        local Hydra = require("hydra")
+
+        -- Define the Hydra
+        Hydra({
+            name = "Debug",
+            mode = "n",
+            body = "<leader>dd",
+            heads = {
+                { "b", function() dap.toggle_breakpoint() end, { desc = "Toggle Breakpoint" } },
+                { "r", function() dap.continue() end,          { desc = "Continue" } },
+                { "p", function() dap.pause() end,             { desc = "Pause" } },
+                { "o", function() dap.step_over() end,         { desc = "Step Over" } },
+                { "i", function() dap.step_into() end,         { desc = "Step Into" } },
+                { "T", function() dap.terminate() end,         { desc = "Terminate" } },
+                { "R", function() dap.restart() end,           { desc = "Restart" } },
+            },
+        })
 
         local dap_go = require("dap-go")
         dap_go.setup()
