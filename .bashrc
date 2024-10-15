@@ -8,6 +8,7 @@ fi
 
 alias vim='nvim'
 alias lg='lazygit'
+alias dc="docker compose"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

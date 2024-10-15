@@ -51,5 +51,7 @@ return {
         end
 
         vim.keymap.set("n", "<leader>du", dapui.toggle, { desc = "toggle ui" })
+
+        vim.fn.sign_define('DapBreakpoint', { text = '🛑', texthl = '', linehl = '', numhl = '' })
     end
 }
