@@ -33,3 +33,5 @@
 # Include device specific config
 [include]
     path = .dot/.gitconfig
+[pull]
+	rebase = false
