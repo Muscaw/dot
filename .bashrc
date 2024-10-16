@@ -11,9 +11,8 @@ alias lg='lazygit'
 alias dc="docker compose"
 
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
@@ -36,24 +35,39 @@ function pbcopy {
     xclip -sel clipboard
 }
 
+function list_all_git_repos() {
+    EXCLUDED_DIRS=(
+        "$HOME/.local"
+        "$HOME/.tmux"
+        "$HOME/.cache"
+        "$HOME/.intellimacs"
+        "$HOME/.gvm"
+    )
+    exclude=""
+    for dir in "${EXCLUDED_DIRS[@]}"; do
+        exclude+=" -path $dir -prune -o"
+    done
+    eval "find $HOME $exclude -type d -name '.git' -printf '%P\n'" | sed 's|/\.git$||'
+}
+
 function _workspace_completions() {
     local cur="${COMP_WORDS[COMP_CWORD]}"
-    local subfolder="$HOME/workspace"
-    COMPREPLY=( $(compgen -W "$(find "$subfolder" -mindepth 1 -maxdepth 1 -type d -exec basename {} \;)" -- "$cur") )
+    local results=$(list_all_git_repos)
+    COMPREPLY=($(compgen -W "$results" -- "$cur"))
 }
 
 function workspace {
-    project_name=$1
-    folder="$HOME/workspace/$project_name"
+    folder="$1"
+    project_name=$(basename $1)
     if [ -d $folder ]; then
-       if ! tmux has-session -t "$project_name" 2> /dev/null; then
-           tmux new-session -d -s "$project_name" -c "$folder" -n "nvim"
-           tmux send-keys -t "$project_name:nvim" "vim ." C-m
+        if ! tmux has-session -t "$project_name" 2>/dev/null; then
+            tmux new-session -d -s "$project_name" -c "$folder" -n "nvim"
+            tmux send-keys -t "$project_name:nvim" "vim ." C-m
 
-           tmux new-window -t "$project_name" -n "bash" -c "$folder"
-           tmux select-window -t "$project_name:nvim"
-       fi
-       tmux attach-session -t "$project_name"
+            tmux new-window -t "$project_name" -n "bash" -c "$folder"
+            tmux select-window -t "$project_name:nvim"
+        fi
+        tmux attach-session -t "$project_name"
     else
         echo "$project_name does not exist in $HOME/workspace"
     fi
