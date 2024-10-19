@@ -21,7 +21,7 @@ return {
             create_keymap("<leader>sD", "<cmd>lua vim.lsp.buf.declaration()<cr>", bufnr, "Go to declaration")
             create_keymap("<leader>si", "<cmd>lua vim.lsp.buf.implementation()<cr>", bufnr, "Go to implementation")
             create_keymap("<leader>so", "<cmd>lua vim.lsp.buf.type_definition()<cr>", bufnr, "Go to type definition")
-            create_keymap("<leader>sr", "<cmd>lua vim.lsp.buf.references()<cr>", bufnr, "Show references")
+            create_keymap("<leader>sr", function() require("telescope.builtin").lsp_references() end, bufnr, "Show references")
             create_keymap("<leader>ss", "<cmd>lua vim.lsp.buf.signature_help()<cr>", bufnr, "Show signature help")
             create_keymap("<leader>rr", "<cmd>lua vim.lsp.buf.rename()<cr>", bufnr, "Rename")
             create_keymap("<A-CR>", "<cmd>lua vim.lsp.buf.code_action()<cr>", bufnr, "Show code action")
