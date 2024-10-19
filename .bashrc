@@ -57,7 +57,7 @@ function _workspace_completions() {
 }
 
 function workspace {
-    folder="$1"
+    folder="$HOME/$1"
     project_name=$(basename $1 | tr "." "_")
     if [ -d $folder ]; then
         if ! tmux has-session -t "$project_name" 2>/dev/null; then
