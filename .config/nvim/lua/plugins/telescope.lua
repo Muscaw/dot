@@ -15,9 +15,11 @@ return {
         { 'nvim-telescope/telescope-fzf-native.nvim', enabled = fzf_enabled, build = 'make' },
         "ahmedkhalf/project.nvim",
         "nvim-telescope/telescope-ui-select.nvim",
+        "edluffy/hologram.nvim",
     },
 
     config = function()
+        require("hologram").setup({ auto_display = true })
         local telescope = require("telescope")
         local extensions = {}
         if fzf_enabled then
@@ -37,6 +39,7 @@ return {
         if fzf_enabled then
             telescope.load_extension("fzf")
         end
+
         telescope.load_extension("ui-select")
         -- telescope.load_extension("projects")
         local builtin = require("telescope.builtin")
