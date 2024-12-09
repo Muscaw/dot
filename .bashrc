@@ -57,8 +57,8 @@ function _workspace_completions() {
 }
 
 function workspace {
-    folder="$1"
-    project_name=$(basename $1)
+    folder="$HOME/$1"
+    project_name=$(basename $1 | tr "." "_")
     if [ -d $folder ]; then
         if ! tmux has-session -t "$project_name" 2>/dev/null; then
             tmux new-session -d -s "$project_name" -c "$folder" -n "nvim"
@@ -69,7 +69,7 @@ function workspace {
         fi
         tmux attach-session -t "$project_name"
     else
-        echo "$project_name does not exist in $HOME/workspace"
+        echo "$project_name does not exist"
     fi
 }
 

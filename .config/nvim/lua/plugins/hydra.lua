@@ -1,13 +1,17 @@
 return {
     "nvimtools/hydra.nvim",
-    config = function() 
+    config = function()
+        require("hydra").setup({
+            debug = true,
+        })
         local Hydra = require("hydra")
         Hydra({
             name = "resize",
             mode = "n",
             body = "<leader>ws",
             config = {
-                desc = "resize"
+                desc = "resize",
+                invoke_on_body=true
             },
             heads = {
                 {"U", "<cmd>:vertical resize +10<cr>", { desc = "increase horizontal size"}},
