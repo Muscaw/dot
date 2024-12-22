@@ -49,6 +49,8 @@ if [[ $(uname) == "Darwin" ]]; then
     alias python3=/opt/homebrew/bin/python3
 fi
 
+alias lg=lazygit
+
 eval "$(starship init zsh)"
 
 [[ -s "/home/m/.gvm/scripts/gvm" ]] && source "/home/m/.gvm/scripts/gvm"
