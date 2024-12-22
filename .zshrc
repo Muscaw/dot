@@ -44,6 +44,11 @@ function pbcopy {
     xclip -sel clipboard
 }
 
+if [[ $(uname) == "Darwin" ]]; then
+    alias python=/opt/homebrew/bin/python3
+    alias python3=/opt/homebrew/bin/python3
+fi
+
 eval "$(starship init zsh)"
 
 [[ -s "/home/m/.gvm/scripts/gvm" ]] && source "/home/m/.gvm/scripts/gvm"
