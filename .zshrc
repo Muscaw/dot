@@ -47,6 +47,9 @@ function pbcopy {
 if [[ $(uname) == "Darwin" ]]; then
     alias python=/opt/homebrew/bin/python3
     alias python3=/opt/homebrew/bin/python3
+    export NVM_DIR="$HOME/.nvm"
+    [ -s "$HOMEBREW_PREFIX/opt/nvm/nvm.sh" ] && \. "$HOMEBREW_PREFIX/opt/nvm/nvm.sh" # This loads nvm
+    [ -s "$HOMEBREW_PREFIX/opt/nvm/etc/bash_completion.d/nvm" ] && \. "$HOMEBREW_PREFIX/opt/nvm/etc/bash_completion.d/nvm" # This loads nvm bash_completion
 fi
 
 alias lg=lazygit
