@@ -7,7 +7,7 @@ return {
             ensure_installed = {
                 "html", -- required by devdocs
                 "vimdoc", "javascript", "typescript", "c", "lua",
-                "rust", "jsdoc", "bash", "python", "go",
+                "rust", "jsdoc", "bash", "python", "go"
             },
 
             -- Install parsers synchronously (only applied to `ensure_installed`)
