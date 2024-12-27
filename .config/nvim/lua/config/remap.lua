@@ -9,5 +9,4 @@ vim.keymap.set("n", "<leader>w/", function() vim.api.nvim_command("vsplit") end,
 vim.keymap.set("n", "<leader>w-", function() vim.api.nvim_command("split") end, { desc = "split window horizontally" })
 vim.keymap.set("n", "<leader>wd", close_current_window, { desc = "close window" })
 
-vim.keymap.set("n", "<C-A-l>", function() vim.lsp.buf.format({ async = false }) end, { desc = "format" })
 vim.keymap.set("n", "<leader><TAB>", ":b#<CR>", { desc = "Jump to previous buffer", noremap = true, silent = true })
