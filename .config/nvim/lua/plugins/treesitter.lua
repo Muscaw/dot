@@ -1,5 +1,8 @@
 return {
     "nvim-treesitter/nvim-treesitter",
+    dependencies = {
+        "fatih/vim-go"
+    },
     build = ":TSUpdate",
     config = function()
         require("nvim-treesitter.configs").setup({
@@ -30,6 +33,18 @@ return {
                 -- Instead of true it can also be a list of languages                
                 additional_vim_regex_highlighting = { "markdown" },
             },
+        })
+        -- For Hugo templates. The templates are called something.html and are interpreter as pure html files
+        -- We want the vim-go syntax highlighting for html-go files.
+        vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
+            group = "filetypedetect",
+            pattern = "*.html",
+            callback = function()
+                local extension = vim.fn.expand("%:e")
+                if extension == "html" and vim.fn.search("{{") ~= 0 then
+                    vim.bo.filetype = "gohtmltmpl"
+                end
+            end,
         })
     end
 }
