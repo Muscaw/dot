@@ -26,7 +26,7 @@ return {
         telescope.setup({
             pickers = {
                 find_files = {
-                    find_command = { "rg", "--files", "--hidden", "--no-ignore-vcs",
+                    find_command = { "rg", "--files", "--hidden",
                         "--glob", "!**/.git/*",
                         "--glob", "!**/node_modules/*"
                     }

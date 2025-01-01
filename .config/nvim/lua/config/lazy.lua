@@ -23,8 +23,8 @@ local o = vim.o
 
 o.expandtab = true
 o.smartindent = true
-o.tabstop = 4
-o.shiftwidth = 4
+o.tabstop = 2
+o.shiftwidth = 2
 
 
 require("lazy").setup({
