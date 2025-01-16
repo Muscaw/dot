@@ -30,3 +30,12 @@ vim.api.nvim_create_autocmd('BufWritePost', {
     pattern = { '*' },
     command = 'redrawstatus',
 })
+
+-- Display some hidden characters
+vim.opt.list = true
+vim.opt.listchars:append {
+  tab = "|-",
+  trail = "-",
+  extends = "#",
+  nbsp = "."
+}
