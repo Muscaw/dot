@@ -64,6 +64,9 @@ eval "$(starship init zsh)"
 
 [[ -s "/home/m/.gvm/scripts/gvm" ]] && source "/home/m/.gvm/scripts/gvm"
 
-if [ -f "$HOME/.dot/post_init" ]; then
-    source $HOME/.dot/post_init
+if [ -f "$HOME/.post_init.sh" ]; then
+    source $HOME/.post_init.sh
 fi
+
+# opencode
+export PATH=/Users/m/.opencode/bin:$PATH

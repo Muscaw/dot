@@ -11,6 +11,13 @@ return {
             build = "./install.sh",
             enabled = utils.is_bin_available("cargo")
         },
+        {
+          "mfussenegger/nvim-dap-python",
+          lazy=true,
+          config= function()
+            require("dap-python").setup("uv")
+          end
+        },
     },
     config = function()
         local vscode = require("dap.ext.vscode")
