@@ -39,3 +39,11 @@ vim.opt.listchars:append {
   extends = "#",
   nbsp = "."
 }
+
+vim.diagnostic.config({
+  virtual_text = { spacing = 2, prefix = "●"},
+  underline = true,
+  signs = true,
+  severity_sort = true,
+  update_in_insert = false,
+})

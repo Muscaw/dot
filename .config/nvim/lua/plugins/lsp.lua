@@ -19,8 +19,15 @@ return {
       create_keymap("<leader>sS", "<cmd>lua vim.lsp.buf.hover()<cr>", bufnr, "Show information")
       create_keymap("<leader>sd", "<cmd>lua vim.lsp.buf.definition()<cr>", bufnr, "Go to definition")
       create_keymap("<leader>sD", "<cmd>lua vim.lsp.buf.declaration()<cr>", bufnr, "Go to declaration")
-      create_keymap("<leader>si", "<cmd>lua vim.lsp.buf.implementation()<cr>", bufnr, "Go to implementation")
+      create_keymap("<leader>si", function()
+        if vim.bo.filetype == "python" then
+          require("telescope.builtin").grep_string()
+        else
+          vim.lsp.buf.implementation()
+        end
+      end, bufnr, "Go to implementation")
       create_keymap("<leader>so", "<cmd>lua vim.lsp.buf.type_definition()<cr>", bufnr, "Go to type definition")
+      -- create_keymap("<leader>sr", "<cmd>lua vim.lsp.buf.references()<cr>", bufnr, "Show references")
       create_keymap("<leader>sr", function()
         require("telescope.builtin").lsp_references()
       end, bufnr, "Show references")
@@ -39,7 +46,7 @@ return {
       handlers = {
         function(server_name)
           local config = {}
-          if server_name == "pyright" then
+          if server_name == "basedpyright" or server_name == "pyright" then
             config = {
               settings = {
                 pyright = {
