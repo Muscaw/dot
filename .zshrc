@@ -40,9 +40,11 @@ function cheat {
     curl "https://cheat.sh/$1"
 }
 
-function pbcopy {
-    xclip -sel clipboard
-}
+if [[ $(uname -s) != "Darwin" ]]; then
+  function pbcopy {
+      xclip -sel clipboard
+  }
+fi
 
 if [[ $(uname) == "Darwin" ]]; then
     alias python=/opt/homebrew/bin/python3
@@ -70,3 +72,5 @@ fi
 
 # opencode
 export PATH=/Users/m/.opencode/bin:$PATH
+
+[[ "$TERM" == "xterm-kitty" ]] && alias ssh="TERM=xterm-256color ssh"

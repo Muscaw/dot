@@ -31,9 +31,11 @@ function cheat {
     curl "https://cheat.sh/$1"
 }
 
-function pbcopy {
-    xclip -sel clipboard
-}
+if [[ $(uname -s) != "Darwin" ]]; then
+  function pbcopy {
+      xclip -sel clipboard
+  }
+fi
 
 function list_all_git_repos() {
     EXCLUDED_DIRS=(
