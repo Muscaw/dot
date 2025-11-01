@@ -1,0 +1,7 @@
+[project]
+name = "dev-scripts"
+version = "0.0.1"
+
+[tool.ruff]
+line-length = 120
+indent-width = 2

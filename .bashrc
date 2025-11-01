@@ -79,6 +79,8 @@ complete -F _workspace_completions workspace
 
 eval "$(starship init bash)"
 
+export PATH=$HOME/.scripts/
+
 [[ -s "/home/m/.gvm/scripts/gvm" ]] && source "/home/m/.gvm/scripts/gvm"
 
 if [ -f "$HOME/.dot/post_init" ]; then

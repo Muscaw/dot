@@ -73,4 +73,6 @@ fi
 # opencode
 export PATH=/Users/m/.opencode/bin:$PATH
 
+export PATH=$PATH:$HOME/.scripts/
+
 [[ "$TERM" == "xterm-kitty" ]] && alias ssh="TERM=xterm-256color ssh"

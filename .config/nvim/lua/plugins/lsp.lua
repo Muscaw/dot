@@ -43,27 +43,14 @@ return {
 
     require("mason").setup({})
     require("mason-lspconfig").setup({
-      handlers = {
-        function(server_name)
-          local config = {}
-          if server_name == "basedpyright" or server_name == "pyright" then
-            config = {
-              settings = {
-                pyright = {
-                  disableOrganizeImports = true,
-                },
-                python = {
-                  analysis = {
-                    -- Ignore all files for analysis to exclusively use Ruff for linting
-                    ignore = { "*" },
-                  },
-                },
-              },
-            }
-          end
-          require("lspconfig")[server_name].setup(config)
-        end,
-      },
+      ensure_installed = {"lua_ls", "basedpyright"},
+      automatic_enable = true
+    })
+
+    vim.lsp.config("basedpyright", {
+      cmd_env = {
+        LC_ALL = "en_US"
+      }
     })
 
     -- cmp config
@@ -90,8 +77,8 @@ return {
         ["<C-b>"] = cmp_action.vim_snippet_jump_backward(),
 
         -- Scroll in completion documentation
-        ["<C-u>"] = cmp.mapping.scroll_docs(-4),
-        ["<C-d>"] = cmp.mapping.scroll_docs(4),
+        ["<C-k>"] = cmp.mapping.scroll_docs(-4),
+        ["<C-j>"] = cmp.mapping.scroll_docs(4),
       }),
       snippet = {
         expand = function(args)
